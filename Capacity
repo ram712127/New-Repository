@@ -1,0 +1,81 @@
+
+
+    public static Capacity addup(Capacity cap1, Capacity cap2) {
+        if (cap1 == null || cap2 == null) throw new NullPointerException("arguments must not be null");
+        Capacity.Builder capacityBuilder = Capacity.Builder.newInstance();
+        for (int i = 0; i < Math.max(cap1.getNuOfDimensions(), cap2.getNuOfDimensions()); i++) {
+            capacityBuilder.addDimension(i, cap1.get(i) + cap2.get(i));
+        }
+        return capacityBuilder.build();
+
+
+    public static Capacity subtract(Capacity cap, Capacity cap2subtract);
+
+    public static Capacity invert(Capacity cap2invert) // CAPACITY --> [-CAPACITY]
+
+    public static double divide(Capacity numerator, Capacity denominator) 
+
+    public static Capacity copyOf(Capacity capacity) 
+
+    public static class Builder {
+        private int[] dimensions = new int[1];
+
+        public static Builder newInstance() {
+            return new Builder();
+        }
+
+        Builder() {
+        }
+
+        public Builder addDimension(int index, int dimValue) 
+
+        private void copy(int[] from, int[] to) 
+
+    public int getNuOfDimensions() 
+
+    public int get(int index) {
+        if (index < dimensions.length) return dimensions[index];
+        return 0;
+    }
+
+    public boolean isLessOrEqual(Capacity toCompare) {
+        if (toCompare == null) throw new NullPointerException();
+        for (int i = 0; i < this.getNuOfDimensions(); i++) {
+            if (this.get(i) > toCompare.get(i)) return false;
+        }
+        return true;
+    }
+
+    public boolean isGreaterOrEqual(Capacity toCompare) 
+
+    public String toString() ;
+
+    public static Capacity max(Capacity cap1, Capacity cap2) {
+        if (cap1 == null || cap2 == null) throw new IllegalArgumentException("arg must not be null");
+        Capacity.Builder toReturnBuilder = Capacity.Builder.newInstance();
+        for (int i = 0; i < Math.max(cap1.getNuOfDimensions(), cap2.getNuOfDimensions()); i++) {
+            toReturnBuilder.addDimension(i, Math.max(cap1.get(i), cap2.get(i)));
+        }
+        return toReturnBuilder.build();
+    }
+
+    public static Capacity min(Capacity cap1, Capacity cap2) 
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Capacity)) return false;
+
+        Capacity capacity = (Capacity) o;
+
+        if (!Arrays.equals(dimensions, capacity.dimensions)) return false;
+
+        return true;
+    }
+
+    public int hashCode() {
+        return Arrays.hashCode(dimensions);
+    }
+}
+
