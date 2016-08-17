@@ -1,0 +1,6 @@
+newInstance method to create Location with inputted x,y or string ID or index int
+
+getId, getIndex, getCoordinate
+
+
+
