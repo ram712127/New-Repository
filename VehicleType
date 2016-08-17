@@ -1,0 +1,14 @@
+public String getTypeId(); //bike, truck
+
+    /**
+     * Returns capacity dimensions.
+     *
+     * @return {@link com.graphhopper.jsprit.core.problem.Capacity}
+     */
+    public Capacity getCapacityDimensions();
+
+    public double getMaxVelocity();
+
+    public VehicleTypeImpl.VehicleCostParams getVehicleCostParams();
+
+    public String getProfile();
